@@ -3,3 +3,10 @@
 @import 'tailwindcss/components';
 /* purgecss end ignore */
 @import 'tailwindcss/utilities';
+
+html,
+body,
+#__nuxt,
+#__layout {
+  height: 100%;
+}

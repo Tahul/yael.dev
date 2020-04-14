@@ -1,12 +1,6 @@
 <template>
   <div>
-    <section>
-      <div v-for="post in posts.slice(0, 2)" v-bind:key="post.slug">
-        <datocms-image :data="post.coverImage.responsiveImage" />
-
-        {{ post }}
-      </div>
-    </section>
+    <posts :posts="posts" />
 
     <!-- newsletter -->
     <section>
@@ -20,12 +14,19 @@
 </template>
 
 <script>
+// Packages
 import { request, gql, imageFields, seoMetaTagsFields } from '~/lib/datocms'
 import { toHead } from 'vue-datocms'
 import format from 'date-fns/format'
 import parseISO from 'date-fns/parseISO'
+// Components
+import Posts from '../components/Posts'
 
 export default {
+  components: {
+    Posts,
+  },
+
   async asyncData({ params }) {
     const data = await request({
       query: gql`
@@ -43,7 +44,7 @@ export default {
             publicationDate: _firstPublishedAt
             excerpt
             coverImage {
-              responsiveImage(imgixParams: { fit: crop, ar: "16:9", w: 860 }) {
+              responsiveImage(imgixParams: { fit: crop, ar: "1:1", w: 860 }) {
                 ...imageFields
               }
             }
