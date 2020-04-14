@@ -1,4 +1,6 @@
-# Vue.js + DatoCMS + Bulma demo
+# yael.dev 👨‍💻
+
+My personal blog, served by DatoCMS, hosted on Netlify.
 
 ## Deploy on DatoCMS
 
@@ -7,7 +9,7 @@
 ## Build Setup
 
 ```bash
-# install dependencies
+# Install dependencies
 $ npm install
 
 # serve with hot reload at localhost:3000
@@ -20,5 +22,3 @@ $ npm run start
 # generate static project
 $ npm run generate
 ```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
