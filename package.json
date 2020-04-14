@@ -1,8 +1,8 @@
 {
-  "name": "datocms-nuxtjs-demo",
+  "name": "yael.dev",
   "version": "1.0.0",
-  "description": "DatoCMS+Nuxt.js blog demo",
-  "author": "Stefano Verna",
+  "description": "My personal blog, served by DatoCMS, hosted on Netlify",
+  "author": "Yaël GUILLOUX",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -13,6 +13,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.9.7",
     "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/tailwindcss": "^1.4.0",
     "date-fns": "^2.12.0",
     "graphql": "^15.0.0",
     "graphql-tag": "^2.10.3",
