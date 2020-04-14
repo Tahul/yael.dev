@@ -3,9 +3,6 @@
     <nav class="navbar">
       <div class="container">
         <div class="navbar-brand">
-          <nuxt-link class="navbar-item" to="/">
-            <img src="/bulma.png" alt="Logo" />
-          </nuxt-link>
           <span class="navbar-burger burger" v-on:click="toggleNavbar">
             <span></span>
             <span></span>
@@ -14,7 +11,10 @@
         </div>
         <div :class="['navbar-menu', navbarOpen && 'is-active']">
           <div class="navbar-end">
-            <nuxt-link class="navbar-item is-active is-size-5 has-text-weight-semibold" to="/">
+            <nuxt-link
+              class="navbar-item is-active is-size-5 has-text-weight-semibold"
+              to="/"
+            >
               Home
             </nuxt-link>
           </div>
@@ -27,7 +27,7 @@
     <footer class="footer">
       <div class="content has-text-centered">
         <p>
-          <strong>Bulma - Blog theme</strong> by
+          <strong>Blog theme</strong> by
           <a href="https://gonzalojs.com">Gonzalo Gutierrez</a>. Based on the
           <a href="http://jigsaw-blog-staging.tighten.co/">jigsaw-blog</a>. The
           source code is licensed
@@ -42,14 +42,14 @@
 export default {
   data() {
     return {
-      navbarOpen: false
+      navbarOpen: false,
     }
   },
   methods: {
     toggleNavbar() {
       this.navbarOpen = !this.navbarOpen
-    }
-  }
+    },
+  },
 }
 </script>
 

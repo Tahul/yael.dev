@@ -30,12 +30,10 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
-    // Doc: https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    '@nuxtjs/bulma',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
   ],
   /*
    ** Axios module configuration
@@ -49,13 +47,13 @@ export default {
     postcss: {
       preset: {
         features: {
-          customProperties: false
-        }
-      }
+          customProperties: false,
+        },
+      },
     },
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
-  }
+    extend(config, ctx) {},
+  },
 }

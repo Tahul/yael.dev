@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.9.7",
-    "@nuxtjs/bulma": "^1.2.7",
     "@nuxtjs/dotenv": "^1.4.1",
     "date-fns": "^2.12.0",
     "graphql": "^15.0.0",
