@@ -1,17 +1,8 @@
 <template>
-  <div class="mt-8">
+  <div class="my-8">
     <home :home="home" />
 
     <posts :posts="posts" />
-
-    <!-- newsletter -->
-    <section>
-      NEWSLETTER
-    </section>
-
-    <!-- Articles -->
-
-    <section></section>
   </div>
 </template>
 

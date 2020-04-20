@@ -1,9 +1,30 @@
 <template>
   <div>
-    <div class="flex items-center">
+    <div
+      class="relative flex items-center"
+      @mouseover="handleMouseOver"
+      @mouseout="handleMouseOut"
+    >
       <img class="image" :src="home.profilePicture.url" />
 
-      <h1 class="ml-4 md:ml-8">Hello, I'm Yaël</h1>
+      <Motion tag="div" spring="noWobble" :values="values" class="book">
+        <h1
+          slot-scope="_props"
+          :style="{
+            transform: `translateY(${_props.offset}px)`,
+            opacity: `${_props.opacity}`,
+          }"
+        >
+          <span class="wave">
+            👋
+          </span>
+        </h1>
+      </Motion>
+
+      <div class="ml-4 md:ml-8">
+        <h1>Hello, I'm Yaël</h1>
+        <p>Hello</p>
+      </div>
     </div>
   </div>
 </template>
@@ -18,5 +39,80 @@ export default {
       required: true,
     },
   },
+
+  data: () => ({
+    hovered: false,
+  }),
+
+  computed: {
+    values() {
+      if (this.hovered) {
+        return {
+          offset: 0,
+          opacity: 1,
+        }
+      }
+
+      return {
+        offset: -100,
+        opacity: 0,
+      }
+    },
+  },
+
+  methods: {
+    handleMouseOver() {
+      this.hovered = true
+    },
+    handleMouseOut() {
+      this.hovered = false
+    },
+  },
 }
 </script>
+
+<style scoped>
+.book {
+  @apply absolute w-16 h-16 p-4 flex items-center justify-center z-50 border-indigo-400 border-4 rounded-full overflow-hidden;
+  background-color: rgba(0, 0, 0, 0.15);
+  left: 2rem;
+  transform: translate(-50%);
+
+  @screen md {
+    @apply w-32 h-32 p-8;
+    left: 4rem;
+  }
+}
+
+.wave {
+  display: inline-block;
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-10deg);
+  }
+  20% {
+    transform: rotate(12deg);
+  }
+  30% {
+    transform: rotate(-10deg);
+  }
+  40% {
+    transform: rotate(9deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+</style>
