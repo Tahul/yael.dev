@@ -53,10 +53,14 @@ svg {
   stroke: white !important;
 }
 
-html,
+html {
+  overflow-y: auto;
+}
+
 body,
 #__nuxt,
 #__layout {
-  height: 100%;
+  height: auto;
+  overflow: hidden;
   font-family: 'Merriweather', sans-serif;
 }

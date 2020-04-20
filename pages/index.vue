@@ -1,5 +1,5 @@
 <template>
-  <div class="my-8">
+  <div class="my-8 md:my-16">
     <home :home="home" />
 
     <posts :posts="posts" />
