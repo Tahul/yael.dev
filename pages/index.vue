@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <div class="mt-8">
+    <home :home="home" />
+
     <posts :posts="posts" />
 
     <!-- newsletter -->
@@ -20,10 +22,12 @@ import { toHead } from 'vue-datocms'
 import format from 'date-fns/format'
 import parseISO from 'date-fns/parseISO'
 // Components
+import Home from '../components/Home'
 import Posts from '../components/Posts'
 
 export default {
   components: {
+    Home,
     Posts,
   },
 
@@ -35,6 +39,13 @@ export default {
             favicon: faviconMetaTags {
               ...seoMetaTagsFields
             }
+          }
+
+          home: home {
+            profilePicture {
+              url
+            }
+            welcome
           }
 
           posts: allPosts(first: 10, orderBy: _firstPublishedAt_DESC) {

@@ -4,9 +4,55 @@
 /* purgecss end ignore */
 @import 'tailwindcss/utilities';
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  @apply text-xl;
+
+  @screen md {
+    @apply text-4xl;
+  }
+}
+
+h2 {
+  @apply text-lg;
+
+  @screen md {
+    @apply text-2xl;
+  }
+}
+
+h3 {
+  @apply text-sm;
+
+  @screen md {
+    @apply text-xl;
+  }
+}
+
+.image {
+  @apply flex-shrink-0 w-16 h-16 min-w-0 min-h-0 rounded-full border-4 border-indigo-400 rounded-full shadow-md;
+
+  @screen md {
+    @apply w-32 h-32;
+  }
+}
+
+svg {
+  fill: white !important;
+  stroke: white !important;
+}
+
 html,
 body,
 #__nuxt,
 #__layout {
   height: 100%;
+  font-family: 'Merriweather', sans-serif;
 }
