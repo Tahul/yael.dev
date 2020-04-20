@@ -43,6 +43,23 @@ export default {
     '@nuxtjs/dotenv',
     // Doc: https://github.com/nuxt-community/tailwindcss-module
     '@nuxtjs/tailwindcss',
+    // Doc: https://github.com/nuxt-community/nuxt-i18n
+    [
+      'nuxt-i18n',
+      {
+        locales: [
+          {
+            code: 'en',
+            name: '🇺🇸 English',
+          },
+          {
+            code: 'fr',
+            name: '🇫🇷 Français',
+          },
+        ],
+        defaultLocale: 'en',
+      },
+    ],
   ],
   /*
    ** Axios module configuration

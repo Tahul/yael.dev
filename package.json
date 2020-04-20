@@ -20,6 +20,7 @@
     "lottie-vuejs": "^0.3.7",
     "marked": "^0.8.2",
     "nuxt": "^2.12.2",
+    "nuxt-i18n": "^6.9.1",
     "vue-datocms": "0.0.7",
     "vue-motion": "^0.2.3"
   },

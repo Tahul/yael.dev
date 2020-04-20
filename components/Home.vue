@@ -21,15 +21,17 @@
         </h1>
       </Motion>
 
-      <div class="ml-4 md:ml-8">
-        <h1>Hello, I'm Yaël</h1>
-        <p>Hello</p>
-      </div>
+      <div
+        class="ml-4 md:ml-8"
+        v-html="marked(home.welcome, { sanitize: true })"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import marked from 'marked'
+
 export default {
   name: 'Home',
 
@@ -57,6 +59,10 @@ export default {
         offset: -100,
         opacity: 0,
       }
+    },
+
+    marked() {
+      return marked
     },
   },
 

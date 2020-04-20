@@ -37,7 +37,7 @@ h3 {
 }
 
 p {
-  @apply text-gray-500;
+  @apply text-gray-500 mt-2;
 }
 
 .image {
@@ -53,6 +53,11 @@ svg {
   stroke: white !important;
 }
 
+:root {
+  @apply bg-gray-900;
+  font-family: 'Merriweather', sans-serif;
+}
+
 html {
   overflow-y: auto;
 }
@@ -62,5 +67,4 @@ body,
 #__layout {
   height: auto;
   overflow: hidden;
-  font-family: 'Merriweather', sans-serif;
 }

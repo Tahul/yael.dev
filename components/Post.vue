@@ -57,7 +57,7 @@ export default {
   computed: {
     dateFormat() {
       return new Date(this.post.publicationDate)
-        .toLocaleDateString('en-GB', {
+        .toLocaleDateString(this.$i18n.locale === 'fr' ? 'fr-FR' : 'en-GB', {
           day: 'numeric',
           month: 'long',
           year: 'numeric',

@@ -1,5 +1,13 @@
 <template>
   <div class="my-8 md:my-16">
+    <nuxt-link
+      v-for="locale in availableLocales"
+      :key="locale.code"
+      :to="switchLocalePath(locale.code)"
+    >
+      {{ locale.name }}
+    </nuxt-link>
+
     <home :home="home" />
 
     <posts :posts="posts" />
@@ -22,7 +30,9 @@ export default {
     Posts,
   },
 
-  async asyncData({ params }) {
+  async asyncData({ app, params }) {
+    const locale = app.i18n.locale
+
     const data = await request({
       query: gql`
         {
@@ -36,10 +46,10 @@ export default {
             profilePicture {
               url
             }
-            welcome
+            welcome(locale: ${locale})
           }
 
-          posts: allPosts(first: 10, orderBy: _firstPublishedAt_DESC) {
+          posts: allPosts(first: 10, orderBy: _firstPublishedAt_DESC, locale: ${locale}) {
             id
             title
             slug
@@ -68,11 +78,13 @@ export default {
 
     return { ready: !!data, ...data }
   },
-  methods: {
-    formatDate(date) {
-      return format(parseISO(date), 'PPP')
+
+  computed: {
+    availableLocales() {
+      return this.$i18n.locales.filter((i) => i.code !== this.$i18n.locale)
     },
   },
+
   head() {
     if (!this.ready) {
       return
