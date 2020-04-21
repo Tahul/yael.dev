@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <nuxt-link
-      v-for="locale in availableLocales"
-      :key="locale.code"
-      :to="switchLocalePath(locale.code)"
-    >
-      {{ locale.name }}
-    </nuxt-link>
-  </div>
+  <nuxt-link
+    class="flex items-center justify-between inline-block w-24"
+    :to="switchLocalePath(availableLocales[0].code)"
+  >
+    <span class="inline-block w-2 mr-2 text-xl">{{
+      availableLocales[0].icon
+    }}</span>
+    <span class="inline-block w-auto">{{ availableLocales[0].name }}</span>
+  </nuxt-link>
 </template>
 
 <script>

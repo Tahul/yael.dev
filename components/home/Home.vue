@@ -7,14 +7,21 @@
     </template>
 
     <div v-html="marked(home.welcome)" />
+
+    <stats class="mt-4" />
   </home-section>
 </template>
 
 <script>
 import marked from 'marked'
+import Stats from './Stats'
 
 export default {
   name: 'Home',
+
+  components: {
+    Stats,
+  },
 
   props: {
     home: {
