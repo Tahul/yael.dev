@@ -10,6 +10,10 @@
 
     <client-only>
       <stats class="mt-4" />
+
+      <template v-slot:placeholder>
+        <p class="mt-4">Loading...</p>
+      </template>
     </client-only>
   </home-section>
 </template>

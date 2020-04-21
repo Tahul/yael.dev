@@ -48,7 +48,7 @@ export default {
   },
 
   mounted() {
-    const response = axios.get(process.env.METRICS_URL).then((r) => {
+    const response = axios.get(process.env.NUXT_ENV_METRICS_URL).then((r) => {
       this.timeSpent = r.data.wakaTime.text
       this.commits = r.data.globalCommits
     })
