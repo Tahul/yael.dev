@@ -8,7 +8,9 @@
 
     <div v-html="marked(home.welcome)" />
 
-    <stats class="mt-4" />
+    <client-only>
+      <stats class="mt-4" />
+    </client-only>
   </home-section>
 </template>
 
