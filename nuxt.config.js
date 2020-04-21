@@ -46,6 +46,8 @@ export default {
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+    // Doc: https://github.com/nuxt-community/svg-module
+    '@nuxtjs/svg',
     // Doc: https://github.com/nuxt-community/tailwindcss-module
     '@nuxtjs/tailwindcss',
     // Doc: https://github.com/nuxt-community/nuxt-i18n

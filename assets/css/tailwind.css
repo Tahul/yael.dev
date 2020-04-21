@@ -4,6 +4,7 @@
 /* purgecss end ignore */
 @import 'tailwindcss/utilities';
 
+/* purgecss start ignore */
 h1,
 h2,
 h3,
@@ -48,16 +49,18 @@ a {
   @apply relative font-bold text-indigo-400;
 
   &::after {
-    @apply transition-all duration-100 ease-in block left-0 absolute w-full bg-indigo-400 opacity-0;
+    @apply rounded-full transition-all duration-100 ease-in-out block left-0 absolute w-full bg-indigo-400 opacity-0;
     content: ' ';
-    bottom: 100%;
-    bottom: -0.125rem;
-    height: 0.125rem;
+    top: 0%;
+    height: 100%;
   }
 
   &:hover {
     &::after {
-      @apply opacity-100 bottom-0;
+      @apply opacity-100;
+
+      top: 100%;
+      height: 0.125rem;
     }
   }
 }
@@ -97,3 +100,4 @@ body,
   height: auto;
   overflow: hidden;
 }
+/* purgecss end ignore */
