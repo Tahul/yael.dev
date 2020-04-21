@@ -28,7 +28,12 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/datocms-image', '~/plugins/lottie', '~/plugins/motion'],
+  plugins: [
+    '~/plugins/datocms-image',
+    '~/plugins/lottie',
+    '~/plugins/motion',
+    '~/plugins/globals',
+  ],
   /*
    ** Nuxt.js dev-modules
    */

@@ -1,32 +1,13 @@
 <template>
-  <div>
-    <div
-      class="relative flex items-center"
-      @mouseover="handleMouseOver"
-      @mouseout="handleMouseOut"
-    >
-      <img class="image" :src="home.profilePicture.url" />
+  <home-section :responsive-image="home.profilePicture.responsiveImage">
+    <template v-slot:hoverContent>
+      <span class="text-4xl wave">
+        👋
+      </span>
+    </template>
 
-      <Motion tag="div" spring="noWobble" :values="values" class="book">
-        <h1
-          slot-scope="_props"
-          :style="{
-            transform: `translateY(${_props.offset}px)`,
-            opacity: `${_props.opacity}`,
-          }"
-        >
-          <span class="wave">
-            👋
-          </span>
-        </h1>
-      </Motion>
-
-      <div
-        class="ml-4 md:ml-8"
-        v-html="marked(home.welcome, { sanitize: true })"
-      />
-    </div>
-  </div>
+    <div v-html="marked(home.welcome)" />
+  </home-section>
 </template>
 
 <script>

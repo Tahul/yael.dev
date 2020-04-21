@@ -1,13 +1,5 @@
 <template>
   <div class="my-8 md:my-16">
-    <nuxt-link
-      v-for="locale in availableLocales"
-      :key="locale.code"
-      :to="switchLocalePath(locale.code)"
-    >
-      {{ locale.name }}
-    </nuxt-link>
-
     <home :home="home" />
 
     <posts :posts="posts" />
@@ -18,11 +10,9 @@
 // Packages
 import { request, gql, imageFields, seoMetaTagsFields } from '~/lib/datocms'
 import { toHead } from 'vue-datocms'
-import format from 'date-fns/format'
-import parseISO from 'date-fns/parseISO'
 // Components
-import Home from '../components/Home'
-import Posts from '../components/Posts'
+import Home from '../components/home/Home'
+import Posts from '../components/home/Posts'
 
 export default {
   components: {
@@ -44,7 +34,9 @@ export default {
 
           home: home {
             profilePicture {
-              url
+              responsiveImage(imgixParams: { fit: crop, ar: "1:1", w: 860 }) {
+                ...imageFields
+              }
             }
             welcome(locale: ${locale})
           }
@@ -77,12 +69,6 @@ export default {
     })
 
     return { ready: !!data, ...data }
-  },
-
-  computed: {
-    availableLocales() {
-      return this.$i18n.locales.filter((i) => i.code !== this.$i18n.locale)
-    },
   },
 
   head() {
