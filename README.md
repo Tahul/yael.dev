@@ -22,3 +22,7 @@ $ npm run start
 # generate static project
 $ npm run generate
 ```
+
+## License
+
+Do whatever you want, but .svg icons are coming from [Icons8](https://icons8.com/), which I bought a subscription for, if you want to use them consider buying one too or visiting their [license page](https://icons8.com/pricing).
