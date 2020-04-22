@@ -1,5 +1,5 @@
 <template>
-  <ul class="flex flex-row">
+  <ul class="flex flex-row items-center">
     <li>
       <a href="https://twitter.com/yaeeelglx" target="_blank">
         <twitter />

@@ -51,6 +51,11 @@ export default {
       type: Object,
       required: true,
     },
+    to: {
+      type: [String, Boolean],
+      required: false,
+      default: false,
+    },
   },
 
   data: () => ({

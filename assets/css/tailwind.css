@@ -86,12 +86,13 @@ a {
 }
 
 :root {
-  @apply bg-gray-900;
   font-family: 'Merriweather', sans-serif;
 }
 
 html {
   overflow-y: auto;
+
+  @apply bg-gray-900;
 }
 
 body,

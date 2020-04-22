@@ -1,21 +1,25 @@
 <template>
   <section>
-    <home-section
+    <nuxt-link
       v-for="(post, index) in posts"
       :key="post.slug"
-      :index="index + 1"
-      :responsive-image="post.coverImage.responsiveImage"
+      :to="`${$i18n.locale === 'fr' ? 'fr' : ''}/posts/${post.slug}`"
     >
-      <template v-slot:hoverContent>
-        <lottie path="./animations/book.json" />
-      </template>
+      <home-section
+        :index="index + 1"
+        :responsive-image="post.coverImage.responsiveImage"
+      >
+        <template v-slot:hoverContent>
+          <lottie path="./animations/book.json" />
+        </template>
 
-      <h2 :title="post.title" class="truncate">{{ post.title }}</h2>
+        <h2 :title="post.title" class="truncate">{{ post.title }}</h2>
 
-      <p class="text-sm italic text-gray-400 md:text-lg">
-        {{ dateFormat(post.publicationDate) }}
-      </p>
-    </home-section>
+        <p class="text-sm italic text-gray-400 md:text-lg">
+          {{ formatDate(post.publicationDate) }}
+        </p>
+      </home-section>
+    </nuxt-link>
   </section>
 </template>
 
@@ -31,7 +35,7 @@ export default {
   },
 
   methods: {
-    dateFormat(date) {
+    formatDate(date) {
       return new Date(date)
         .toLocaleDateString(this.$i18n.locale === 'fr' ? 'fr-FR' : 'en-GB', {
           day: 'numeric',

@@ -59,6 +59,7 @@ export default {
     [
       'nuxt-i18n',
       {
+        vuex: true,
         locales: [
           {
             code: 'en',

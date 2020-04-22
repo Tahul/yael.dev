@@ -1,13 +1,11 @@
 <template>
-  <section>
-    <figure>
-      <datocms-image :data="post.coverImage.responsiveImage" />
-    </figure>
+  <section class="flex flex-col">
+    <datocms-image class="rounded-lg" :data="post.coverImage.responsiveImage" />
 
     <section>
-      <h2>
+      <h3>
         {{ formatDate(post.publicationDate) }}
-      </h2>
+      </h3>
       <h1>
         <nuxt-link :to="`/posts/${post.slug}`">
           {{ post.title }}
@@ -26,27 +24,33 @@ import format from 'date-fns/format'
 import parseISO from 'date-fns/parseISO'
 
 export default {
-  async asyncData({ params }) {
+  async asyncData({ app, params, store }) {
+    const locale = app.i18n.locale
+
     const data = await request({
       query: gql`
-        query BlogPostQuery($slug: String!) {
+        query BlogPostQuery($locale: SiteLocale!, $slug: String!) {
           site: _site {
             favicon: faviconMetaTags {
               ...seoMetaTagsFields
             }
           }
 
-          post(filter: { slug: { eq: $slug } }) {
+          post(locale: $locale, filter: { slug: { eq: $slug } }) {
             seo: _seoMetaTags {
               ...seoMetaTagsFields
             }
             id
             title
             slug
+            _allSlugLocales {
+              locale
+              value
+            }
             publicationDate: _firstPublishedAt
             content
             coverImage {
-              responsiveImage(imgixParams: { fit: crop, ar: "16:9", w: 860 }) {
+              responsiveImage(imgixParams: { fit: crop, w: 1200, h: 380 }) {
                 ...imageFields
               }
             }
@@ -65,17 +69,34 @@ export default {
         ${seoMetaTagsFields}
       `,
       variables: {
+        locale,
         slug: params.id,
       },
     })
 
+    console.log(store.state)
+
+    store.commit('i18n/setRouteParams', {
+      en: { id: data.post._allSlugLocales[0].value },
+      fr: { id: data.post._allSlugLocales[1].value },
+    })
+
     return { ready: !!data, ...data }
   },
+
   methods: {
     formatDate(date) {
-      return format(parseISO(date), 'PPP')
+      return new Date(date)
+        .toLocaleDateString(this.$i18n.locale === 'fr' ? 'fr-FR' : 'en-GB', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+        })
+        .split('&nbsp;')
+        .join('')
     },
   },
+
   head() {
     if (!this.ready) {
       return
