@@ -30,6 +30,16 @@ export default {
    ** Global CSS
    */
   css: [],
+  /* Layout Transitions */
+  layoutTransition: {
+    name: 'layout',
+    mode: '',
+  },
+  /* Page Transitions */
+  pageTransition: {
+    name: 'page',
+    mode: 'out-in',
+  },
   /*
    ** Plugins to load before mounting the App
    */
@@ -38,6 +48,7 @@ export default {
     '~/plugins/lottie',
     '~/plugins/motion',
     '~/plugins/globals',
+    '~/plugins/helpers',
   ],
   /*
    ** Nuxt.js dev-modules

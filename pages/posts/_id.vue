@@ -1,19 +1,16 @@
 <template>
-  <section class="flex flex-col">
+  <section class="relative flex flex-col">
     <datocms-image class="rounded-lg" :data="post.coverImage.responsiveImage" />
 
-    <section>
-      <h3>
-        {{ formatDate(post.publicationDate) }}
-      </h3>
-      <h1>
-        <nuxt-link :to="`/posts/${post.slug}`">
-          {{ post.title }}
-        </nuxt-link>
-      </h1>
+    <h3 class="absolute top-0 left-0 p-4 opacity-75">
+      {{ $helpers.formatDate($i18n.locale, post.publicationDate) }}
+    </h3>
 
-      <div v-html="post.content" />
-    </section>
+    <h1 class="py-4">
+      {{ post.title }}
+    </h1>
+
+    <div v-html="post.content" />
   </section>
 </template>
 
@@ -74,27 +71,12 @@ export default {
       },
     })
 
-    console.log(store.state)
-
     store.commit('i18n/setRouteParams', {
       en: { id: data.post._allSlugLocales[0].value },
       fr: { id: data.post._allSlugLocales[1].value },
     })
 
     return { ready: !!data, ...data }
-  },
-
-  methods: {
-    formatDate(date) {
-      return new Date(date)
-        .toLocaleDateString(this.$i18n.locale === 'fr' ? 'fr-FR' : 'en-GB', {
-          day: 'numeric',
-          month: 'long',
-          year: 'numeric',
-        })
-        .split('&nbsp;')
-        .join('')
-    },
   },
 
   head() {

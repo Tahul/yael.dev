@@ -1,5 +1,5 @@
 <template>
-  <div class="flex stats">
+  <div v-if="!failed" class="flex stats">
     <div class="flex items-center w-auto">
       <though class="inline-block mr-2" />
 
@@ -27,6 +27,7 @@ export default {
   },
 
   data: () => ({
+    failed: false,
     timeSpent: '...',
     commits: '...',
   }),
@@ -48,10 +49,14 @@ export default {
   },
 
   mounted() {
-    const response = axios.get(process.env.NUXT_ENV_METRICS_URL).then((r) => {
-      this.timeSpent = r.data.wakaTime.text
-      this.commits = r.data.globalCommits
-    })
+    try {
+      const response = axios.get(process.env.NUXT_ENV_METRICS_URL).then((r) => {
+        this.timeSpent = r.data.wakaTime.text
+        this.commits = r.data.globalCommits
+      })
+    } catch (e) {
+      this.failed = true
+    }
   },
 }
 </script>

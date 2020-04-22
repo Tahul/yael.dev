@@ -101,4 +101,16 @@ body,
   height: auto;
   overflow: hidden;
 }
+
+.page-enter-active,
+.page-leave-active {
+  transition-property: opacity, transform;
+  transition-timing-function: ease-in-out;
+  transition-duration: 150ms;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(100px);
+}
 /* purgecss end ignore */
