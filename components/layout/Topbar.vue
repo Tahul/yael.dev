@@ -1,13 +1,18 @@
 <template>
-  <div class="flex items-center justify-between w-full py-2">
+  <div class="flex flex-wrap items-center justify-between w-full py-2">
     <networks />
-    <locale-switcher />
+
+    <div class="flex items-center">
+      <back-home />
+      <locale-switcher />
+    </div>
   </div>
 </template>
 
 <script>
 import LocaleSwitcher from './LocaleSwitcher'
 import Networks from './Networks'
+import BackHome from './BackHome'
 
 export default {
   name: 'Topbar',
@@ -15,6 +20,7 @@ export default {
   components: {
     LocaleSwitcher,
     Networks,
+    BackHome,
   },
 }
 </script>

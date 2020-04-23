@@ -10,6 +10,7 @@ const helpers = {
       })
       .split('&nbsp;')
       .join('')
+      .toLocaleLowerCase()
   },
   getPostUrl(locale, post) {
     return `${locale === 'fr' ? 'fr' : ''}/posts/${post.slug}`
