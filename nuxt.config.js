@@ -1,5 +1,59 @@
+// Imports
+require('dotenv').config()
+import { request, gql } from './lib/datocms'
+
+// Variables
+const locales = [
+  {
+    code: 'en',
+    icon: '🇺🇸',
+    name: 'English',
+  },
+  {
+    code: 'fr',
+    icon: '🇫🇷',
+    name: 'Français',
+  },
+]
+
+// Config
 export default {
   mode: 'universal',
+
+  /**
+   * Generate routes at build time
+   */
+  generate: {
+    async routes() {
+      const routes = []
+      const localeCodes = locales.map((locale) => locale.code)
+
+      const data = await request({
+        query: gql`
+          {
+            posts: allPosts(orderBy: _firstPublishedAt_DESC) {
+              _allSlugLocales {
+                locale
+                value
+              }
+            }
+          }
+        `,
+      })
+
+      data.posts.forEach((post) => {
+        localeCodes.forEach((code) => {
+          const codeSlug = post._allSlugLocales.find(
+            (slug) => slug.locale === code
+          ).value
+
+          routes.push(`${code === 'fr' ? '/fr/' : '/'}posts/${codeSlug}`)
+        })
+      })
+
+      return routes
+    },
+  },
 
   /*
    ** Headers of the page
@@ -74,18 +128,7 @@ export default {
       'nuxt-i18n',
       {
         vuex: true,
-        locales: [
-          {
-            code: 'en',
-            icon: '🇺🇸',
-            name: 'English',
-          },
-          {
-            code: 'fr',
-            icon: '🇫🇷',
-            name: 'Français',
-          },
-        ],
+        locales,
         defaultLocale: 'en',
       },
     ],
