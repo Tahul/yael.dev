@@ -1,4 +1,4 @@
 import Vue from 'vue'
-import LottieAnimation from 'lottie-vuejs/src/LottieAnimation'
+import LottieAnimation from '../node_modules/lottie-vuejs/src/LottieAnimation'
 
 Vue.component('Lottie', LottieAnimation)

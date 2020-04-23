@@ -1,5 +1,6 @@
 export default {
-  mode: 'spa',
+  mode: 'universal',
+
   /*
    ** Headers of the page
    */
@@ -31,10 +32,10 @@ export default {
    */
   css: [],
   /* Layout Transitions */
-  layoutTransition: {
+  /* layoutTransition: {
     name: 'layout',
     mode: '',
-  },
+  }, */
   /* Page Transitions */
   pageTransition: {
     name: 'page',
@@ -58,6 +59,8 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
+    // Doc: https://aceforth.com/docs/nuxt-netlify
+    '@aceforth/nuxt-netlify',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
