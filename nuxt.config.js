@@ -80,21 +80,11 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: '#7f9cf5' },
   /*
    ** Global CSS
    */
   css: [],
-  /* Layout Transitions */
-  /* layoutTransition: {
-    name: 'layout',
-    mode: '',
-  }, */
-  /* Page Transitions */
-  pageTransition: {
-    name: 'page',
-    mode: 'out-in',
-  },
   /*
    ** Plugins to load before mounting the App
    */

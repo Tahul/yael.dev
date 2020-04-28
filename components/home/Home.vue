@@ -1,7 +1,7 @@
 <template>
   <home-section :responsive-image="home.profilePicture.responsiveImage">
     <template v-slot:hoverContent>
-      <span class="text-4xl wave">
+      <span class="text-2xl md:text-4xl wave">
         👋
       </span>
     </template>
@@ -36,25 +36,7 @@ export default {
     },
   },
 
-  data: () => ({
-    hovered: false,
-  }),
-
   computed: {
-    values() {
-      if (this.hovered) {
-        return {
-          offset: 0,
-          opacity: 1,
-        }
-      }
-
-      return {
-        offset: -100,
-        opacity: 0,
-      }
-    },
-
     marked() {
       return marked
     },
@@ -72,18 +54,6 @@ export default {
 </script>
 
 <style scoped>
-.book {
-  @apply absolute w-16 h-16 p-4 flex items-center justify-center z-50 border-indigo-400 border-4 rounded-full overflow-hidden;
-  background-color: rgba(0, 0, 0, 0.15);
-  left: 2rem;
-  transform: translate(-50%);
-
-  @screen md {
-    @apply w-32 h-32 p-8;
-    left: 4rem;
-  }
-}
-
 .wave {
   display: inline-block;
   animation-name: wave-animation;

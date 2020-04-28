@@ -15,7 +15,11 @@
 
         <h2 :title="post.title" class="truncate">{{ post.title }}</h2>
 
-        <p class="text-sm italic text-gray-400 md:text-lg">
+        <span class="mt-2 text-sm italic text-gray-400 md:text-base">
+          {{ post.excerpt }}
+        </span>
+
+        <p class="text-sm italic text-gray-600 md:text-lg">
           {{ $helpers.formatDate($i18n.locale, post.publicationDate) }}
         </p>
       </home-section>
@@ -24,8 +28,14 @@
 </template>
 
 <script>
+import Date from '../../assets/img/date.svg?inline'
+
 export default {
   name: 'Posts',
+
+  components: {
+    Date,
+  },
 
   props: {
     posts: {

@@ -1,12 +1,14 @@
 <template>
-  <div v-if="!failed" class="flex stats">
-    <div class="flex items-center w-auto">
-      <though class="inline-block mr-2" />
+  <div v-if="!failed" class="flex flex-wrap stats">
+    <div class="flex items-center w-auto mb-2 md:mb-0">
+      <though class="inline-block w-8 h-8 mr-2" />
 
       <p class="inline-block">{{ timeSpent }} {{ locale.timeSpent }}</p>
+
+      &nbsp;&nbsp;
     </div>
-    <div class="flex items-center w-auto ml-2">
-      <commit class="inline-block mr-2" />
+    <div class="flex items-center w-auto mb-2 md:mb-0">
+      <commit class="inline-block w-8 h-8 mr-2" />
 
       <p class="inline-block">{{ commits }} {{ locale.commits }}</p>
     </div>
@@ -36,12 +38,12 @@ export default {
     locale() {
       if (this.$i18n.locale === 'fr') {
         return {
-          timeSpent: "passées à coder aujourd'hui",
+          timeSpent: 'passées à coder',
           commits: 'commits envoyés',
         }
       } else {
         return {
-          timeSpent: 'spent coding today',
+          timeSpent: 'spent coding',
           commits: 'commits pushed',
         }
       }

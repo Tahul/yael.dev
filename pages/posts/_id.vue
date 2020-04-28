@@ -1,16 +1,130 @@
 <template>
-  <section class="relative flex flex-col">
-    <datocms-image class="rounded-lg" :data="post.coverImage.responsiveImage" />
+  <section class="relative flex flex-col my-8">
+    <slide-in>
+      <datocms-image
+        class="rounded-lg"
+        :data="post.coverImage.responsiveImage"
+      />
+    </slide-in>
 
-    <h3 class="absolute top-0 left-0 p-4 opacity-75">
-      {{ $helpers.formatDate($i18n.locale, post.publicationDate) }}
-    </h3>
+    <slide-in class="absolute top-0 left-0" :delay="100">
+      <h3 class="p-4 opacity-75">
+        {{ $helpers.formatDate($i18n.locale, post.publicationDate) }}
+      </h3>
+    </slide-in>
 
-    <h1 class="py-4">
-      {{ post.title }}
-    </h1>
+    <slide-in :delay="200">
+      <h1 class="py-4">
+        {{ post.title }}
+      </h1>
+    </slide-in>
 
-    <div v-html="post.content" />
+    <slide-in :delay="300">
+      <div v-html="post.content" />
+
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem quidem
+        aperiam voluptate optio ad enim quasi earum voluptates expedita
+        repudiandae. Reprehenderit adipisci, nulla animi iste quibusdam nihil
+        dicta quisquam voluptatibus.
+      </p>
+
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem quidem
+        aperiam voluptate optio ad enim quasi earum voluptates expedita
+        repudiandae. Reprehenderit adipisci, nulla animi iste quibusdam nihil
+        dicta quisquam voluptatibus.
+      </p>
+
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem quidem
+        aperiam voluptate optio ad enim quasi earum voluptates expedita
+        repudiandae. Reprehenderit adipisci, nulla animi iste quibusdam nihil
+        dicta quisquam voluptatibus.
+      </p>
+
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem quidem
+        aperiam voluptate optio ad enim quasi earum voluptates expedita
+        repudiandae. Reprehenderit adipisci, nulla animi iste quibusdam nihil
+        dicta quisquam voluptatibus.
+      </p>
+
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem quidem
+        aperiam voluptate optio ad enim quasi earum voluptates expedita
+        repudiandae. Reprehenderit adipisci, nulla animi iste quibusdam nihil
+        dicta quisquam voluptatibus.
+      </p>
+
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem quidem
+        aperiam voluptate optio ad enim quasi earum voluptates expedita
+        repudiandae. Reprehenderit adipisci, nulla animi iste quibusdam nihil
+        dicta quisquam voluptatibus.
+      </p>
+
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem quidem
+        aperiam voluptate optio ad enim quasi earum voluptates expedita
+        repudiandae. Reprehenderit adipisci, nulla animi iste quibusdam nihil
+        dicta quisquam voluptatibus.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem quidem
+        aperiam voluptate optio ad enim quasi earum voluptates expedita
+        repudiandae. Reprehenderit adipisci, nulla animi iste quibusdam nihil
+        dicta quisquam voluptatibus.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem quidem
+        aperiam voluptate optio ad enim quasi earum voluptates expedita
+        repudiandae. Reprehenderit adipisci, nulla animi iste quibusdam nihil
+        dicta quisquam voluptatibus.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem quidem
+        aperiam voluptate optio ad enim quasi earum voluptates expedita
+        repudiandae. Reprehenderit adipisci, nulla animi iste quibusdam nihil
+        dicta quisquam voluptatibus.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem quidem
+        aperiam voluptate optio ad enim quasi earum voluptates expedita
+        repudiandae. Reprehenderit adipisci, nulla animi iste quibusdam nihil
+        dicta quisquam voluptatibus.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem quidem
+        aperiam voluptate optio ad enim quasi earum voluptates expedita
+        repudiandae. Reprehenderit adipisci, nulla animi iste quibusdam nihil
+        dicta quisquam voluptatibus.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem quidem
+        aperiam voluptate optio ad enim quasi earum voluptates expedita
+        repudiandae. Reprehenderit adipisci, nulla animi iste quibusdam nihil
+        dicta quisquam voluptatibus.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem quidem
+        aperiam voluptate optio ad enim quasi earum voluptates expedita
+        repudiandae. Reprehenderit adipisci, nulla animi iste quibusdam nihil
+        dicta quisquam voluptatibus.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem quidem
+        aperiam voluptate optio ad enim quasi earum voluptates expedita
+        repudiandae. Reprehenderit adipisci, nulla animi iste quibusdam nihil
+        dicta quisquam voluptatibus.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem quidem
+        aperiam voluptate optio ad enim quasi earum voluptates expedita
+        repudiandae. Reprehenderit adipisci, nulla animi iste quibusdam nihil
+        dicta quisquam voluptatibus.
+      </p>
+    </slide-in>
   </section>
 </template>
 
@@ -85,6 +199,30 @@ export default {
     }
 
     return toHead(this.post.seo, this.site.favicon)
+  },
+
+  data: () => ({
+    mounted: false,
+  }),
+
+  computed: {
+    values() {
+      if (this.mounted) {
+        return {
+          offset: 0,
+          opacity: 1,
+        }
+      }
+
+      return {
+        offset: 200,
+        opacity: 0,
+      }
+    },
+  },
+
+  mounted() {
+    this.mounted = true
   },
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <Motion tag="div" spring="noWobble" :values="values">
     <div
-      class="relative flex items-center w-full mt-8 cursor-pointer md:mt-16"
+      class="relative flex flex-wrap items-center w-full mt-8 cursor-pointer md:flex-no-wrap md:mt-16"
       @mouseover="handleMouseOver"
       @mouseout="handleMouseOut"
       slot-scope="_props"
@@ -10,27 +10,29 @@
         opacity: `${_props.opacity}`,
       }"
     >
-      <Motion
-        v-if="$slots.hoverContent"
-        tag="div"
-        spring="noWobble"
-        :values="hoverValues"
-        class="hoverContent"
-      >
-        <span
-          slot-scope="_props"
-          :style="{
-            transform: `translateY(${_props.offset}px)`,
-            opacity: `${_props.opacity}`,
-          }"
+      <div class="image">
+        <Motion
+          v-if="$slots.hoverContent"
+          tag="div"
+          spring="noWobble"
+          :values="hoverValues"
+          class="hoverContent"
         >
-          <slot name="hoverContent" />
-        </span>
-      </Motion>
+          <span
+            slot-scope="_props"
+            :style="{
+              transform: `translateY(${_props.offset}px)`,
+              opacity: `${_props.opacity}`,
+            }"
+          >
+            <slot name="hoverContent" />
+          </span>
+        </Motion>
 
-      <datocms-image class="image" :data="responsiveImage" />
+        <datocms-image :data="responsiveImage" />
+      </div>
 
-      <div class="ml-4 truncate md:ml-8">
+      <div class="ml-0 md:ml-8">
         <slot />
       </div>
     </div>

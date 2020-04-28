@@ -38,7 +38,7 @@ h3 {
 }
 
 p {
-  @apply text-sm text-gray-500 mt-2;
+  @apply text-sm text-gray-400 mt-2;
 
   @screen md {
     @apply text-base;
@@ -66,23 +66,17 @@ a {
 }
 
 .image {
-  @apply select-none flex-shrink-0 w-16 h-16 min-w-0 min-h-0 rounded-full border-4 border-indigo-400 rounded-full shadow-md;
+  @apply relative overflow-hidden w-full mb-4 select-none flex-shrink-0 w-24 h-24 min-w-0 min-h-0 rounded-full border-4 border-indigo-400 rounded-full shadow-md;
 
   @screen md {
-    @apply w-32 h-32;
+    @apply w-32 h-32 mb-0;
   }
 }
 
 .hoverContent {
-  @apply absolute w-16 h-16 p-4 flex items-center justify-center z-50 border-indigo-400 border-4 rounded-full overflow-hidden;
-  background-color: rgba(0, 0, 0, 0.15);
-  left: 2rem;
+  @apply top-0 absolute w-full h-full p-4 flex items-center justify-center z-50 overflow-hidden;
   transform: translate(-50%);
-
-  @screen md {
-    @apply w-32 h-32 p-8;
-    left: 4rem;
-  }
+  left: 50%;
 }
 
 :root {
@@ -90,7 +84,7 @@ a {
 }
 
 html {
-  overflow-y: auto;
+  overflow-y: overlay;
 
   @apply bg-gray-900;
 }
@@ -101,16 +95,3 @@ body,
   height: auto;
   overflow: hidden;
 }
-
-.page-enter-active,
-.page-leave-active {
-  transition-property: opacity, transform;
-  transition-timing-function: ease-in-out;
-  transition-duration: 150ms;
-}
-.page-enter,
-.page-leave-to {
-  opacity: 0;
-  transform: translateY(100px);
-}
-/* purgecss end ignore */
