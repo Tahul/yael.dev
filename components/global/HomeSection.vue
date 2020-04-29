@@ -1,7 +1,7 @@
 <template>
   <Motion tag="div" spring="noWobble" :values="values">
     <div
-      class="relative flex flex-wrap items-center w-full mt-8 cursor-pointer md:flex-no-wrap md:mt-16"
+      class="relative flex flex-wrap items-center w-full mb-8 cursor-pointer md:mb-16 md:flex-no-wrap"
       @mouseover="handleMouseOver"
       @mouseout="handleMouseOut"
       slot-scope="_props"
@@ -10,7 +10,7 @@
         opacity: `${_props.opacity}`,
       }"
     >
-      <div class="image">
+      <div class="relative flex items-center justify-center w-full md:w-auto">
         <Motion
           v-if="$slots.hoverContent"
           tag="div"
@@ -29,10 +29,10 @@
           </span>
         </Motion>
 
-        <datocms-image :data="responsiveImage" />
+        <datocms-image class="image" :data="responsiveImage" />
       </div>
 
-      <div class="ml-0 md:ml-8">
+      <div class="w-full ml-0 md:w-auto md:ml-8">
         <slot />
       </div>
     </div>

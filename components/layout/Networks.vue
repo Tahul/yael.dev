@@ -1,5 +1,5 @@
 <template>
-  <ul class="flex flex-row items-center">
+  <ul class="flex flex-row items-center justify-between w-full md:w-auto">
     <li>
       <a href="https://twitter.com/yaeeelglx" target="_blank">
         <twitter />
@@ -37,7 +37,11 @@ export default {
 <style scoped>
 ul {
   & li {
-    @apply mr-4 cursor-pointer;
+    @apply cursor-pointer;
+
+    @screen md {
+      @apply mr-4;
+    }
 
     & svg {
       transition: fill 0.1s ease-in-out;

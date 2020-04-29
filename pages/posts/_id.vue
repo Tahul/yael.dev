@@ -1,25 +1,31 @@
 <template>
-  <section class="relative flex flex-col my-8">
-    <slide-in>
-      <datocms-image
-        class="rounded-lg"
-        :data="post.coverImage.responsiveImage"
+  <section class="relative flex flex-col">
+    <slide-in class="mb-4">
+      <img
+        class="object-cover w-full h-64 rounded-lg"
+        :src="post.coverImage.responsiveImage.src"
       />
     </slide-in>
 
-    <slide-in class="absolute top-0 left-0" :delay="100">
-      <h3 class="p-4 opacity-75">
-        {{ $helpers.formatDate($i18n.locale, post.publicationDate) }}
-      </h3>
-    </slide-in>
-
-    <slide-in :delay="200">
-      <h1 class="py-4">
+    <slide-in :delay="100">
+      <h1>
         {{ post.title }}
       </h1>
     </slide-in>
 
+    <slide-in :delay="200">
+      <span class="text-sm italic text-gray-400 md:text-base">
+        {{ post.excerpt }}
+      </span>
+    </slide-in>
+
     <slide-in :delay="300">
+      <p class="mt-0 text-lg italic text-gray-600">
+        {{ $helpers.formatDate($i18n.locale, post.publicationDate) }}
+      </p>
+    </slide-in>
+
+    <slide-in :delay="400">
       <div v-html="post.content" />
 
       <p>
@@ -158,10 +164,11 @@ export default {
               locale
               value
             }
+            excerpt
             publicationDate: _firstPublishedAt
             content
             coverImage {
-              responsiveImage(imgixParams: { fit: crop, w: 1200, h: 380 }) {
+              responsiveImage {
                 ...imageFields
               }
             }

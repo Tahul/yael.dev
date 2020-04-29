@@ -98,7 +98,20 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [],
+  buildModules: [
+    // Doc: https://github.com/nuxt-community/tailwindcss-module
+    '@nuxtjs/tailwindcss',
+    // Doc: https://github.com/teamnovu/nuxt-breaky
+    [
+      '@teamnovu/nuxt-breaky',
+      {
+        enabled: true,
+        enableInProd: false,
+        colorScheme: 'auto',
+        position: 'bottomRight',
+      },
+    ],
+  ],
   /*
    ** Nuxt.js modules
    */
@@ -111,8 +124,6 @@ export default {
     '@nuxtjs/dotenv',
     // Doc: https://github.com/nuxt-community/svg-module
     '@nuxtjs/svg',
-    // Doc: https://github.com/nuxt-community/tailwindcss-module
-    '@nuxtjs/tailwindcss',
     // Doc: https://github.com/nuxt-community/nuxt-i18n
     [
       'nuxt-i18n',
@@ -123,6 +134,13 @@ export default {
       },
     ],
   ],
+  /**
+   * Tailwind
+   */
+  tailwindcss: {
+    cssPath: '~/assets/css/tailwind.css',
+    exposeConfig: true,
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options

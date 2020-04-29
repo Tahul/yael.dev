@@ -1,8 +1,10 @@
 <template>
-  <div class="flex flex-wrap items-center justify-between w-full py-2">
+  <div class="flex flex-wrap items-center justify-between w-full my-4">
     <networks />
 
-    <div class="flex items-center">
+    <div
+      class="flex items-center justify-between w-full mt-4 md:mt-0 md:w-auto"
+    >
       <back-home />
       <locale-switcher />
     </div>

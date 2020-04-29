@@ -55,7 +55,7 @@ a {
     height: 100%;
   }
 
-  &:hover {
+  &:active {
     &::after {
       @apply opacity-100;
 
@@ -66,15 +66,15 @@ a {
 }
 
 .image {
-  @apply relative overflow-hidden w-full mb-4 select-none flex-shrink-0 w-24 h-24 min-w-0 min-h-0 rounded-full border-4 border-indigo-400 rounded-full shadow-md;
+  @apply relative overflow-hidden w-full mb-4 select-none flex-shrink-0 w-32 h-32 min-w-0 min-h-0 rounded-full border-4 border-indigo-400 rounded-full shadow-md;
 
   @screen md {
-    @apply w-32 h-32 mb-0;
+    @apply mb-0;
   }
 }
 
 .hoverContent {
-  @apply top-0 absolute w-full h-full p-4 flex items-center justify-center z-50 overflow-hidden;
+  @apply top-0 absolute w-32 h-32 p-4 flex items-center justify-center z-50 overflow-hidden rounded-full;
   transform: translate(-50%);
   left: 50%;
 }
@@ -84,14 +84,5 @@ a {
 }
 
 html {
-  overflow-y: overlay;
-
   @apply bg-gray-900;
-}
-
-body,
-#__nuxt,
-#__layout {
-  height: auto;
-  overflow: hidden;
 }
