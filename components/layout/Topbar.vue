@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap items-center justify-between w-full my-4">
+  <div class="flex flex-wrap items-center justify-between w-full py-4">
     <networks />
 
     <div

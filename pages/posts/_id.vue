@@ -26,8 +26,18 @@
     </slide-in>
 
     <slide-in :delay="400">
-      <div v-html="post.content" />
+      <div class="w-full h-1 my-4 bg-indigo-400 rounded-full" />
     </slide-in>
+
+    <slide-in :delay="500">
+      <div class="content" v-html="post.content" />
+    </slide-in>
+
+    <client-only>
+      <slide-in :delay="600">
+        <comments />
+      </slide-in>
+    </client-only>
   </section>
 </template>
 
@@ -130,3 +140,21 @@ export default {
   },
 }
 </script>
+
+<style>
+.content {
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5 {
+    @apply my-4 text-indigo-400;
+  }
+
+  & p {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+</style>
