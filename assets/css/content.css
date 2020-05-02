@@ -15,7 +15,7 @@ h5 {
 }
 
 h1 {
-  @apply text-xl;
+  @apply text-2xl;
 
   @screen md {
     @apply text-4xl;
@@ -23,7 +23,7 @@ h1 {
 }
 
 h2 {
-  @apply text-lg;
+  @apply text-xl;
 
   @screen md {
     @apply text-2xl;
@@ -31,7 +31,7 @@ h2 {
 }
 
 h3 {
-  @apply text-sm;
+  @apply text-lg;
 
   @screen md {
     @apply text-xl;
