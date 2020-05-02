@@ -3,81 +3,14 @@
 @import 'tailwindcss/components';
 /* purgecss end ignore */
 @import 'tailwindcss/utilities';
+/* Custom styling */
+@import './content.css';
 
-/* purgecss start ignore */
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: 'Montserrat', sans-serif;
-}
+/*
 
-h1 {
-  @apply text-xl;
+  MAIN LAYOUT STYLING
 
-  @screen md {
-    @apply text-4xl;
-  }
-}
-
-h2 {
-  @apply text-lg;
-
-  @screen md {
-    @apply text-2xl;
-  }
-}
-
-h3 {
-  @apply text-sm;
-
-  @screen md {
-    @apply text-xl;
-  }
-}
-
-p {
-  @apply text-sm text-gray-400 mt-2;
-
-  @screen md {
-    @apply text-base;
-  }
-}
-
-a {
-  @apply relative font-bold text-indigo-400;
-
-  &::after {
-    @apply rounded-full transition-all duration-100 ease-in-out block left-0 absolute w-full bg-indigo-400 opacity-0;
-    content: ' ';
-    top: 0%;
-    height: 100%;
-  }
-
-  &:active {
-    &::after {
-      @apply opacity-100;
-
-      top: 100%;
-      height: 0.125rem;
-    }
-  }
-}
-
-.image {
-  @apply relative overflow-hidden w-full mb-4 select-none flex-shrink-0 w-32 h-32 min-w-0 min-h-0 rounded-full border-4 border-indigo-400 rounded-full shadow-md;
-
-  @screen md {
-    @apply mb-0;
-  }
-}
-
-.hoverContent {
-  @apply top-0 absolute w-32 h-32 p-4 flex items-center justify-center z-50 overflow-hidden rounded-full;
-  transform: translate(-50%);
-  left: 50%;
-}
+ */
 
 :root {
   font-family: 'Merriweather', sans-serif;

@@ -29,7 +29,11 @@
           </span>
         </Motion>
 
-        <datocms-image class="image" :data="responsiveImage" />
+        <datocms-image
+          picture-class="rounded-full"
+          class="image"
+          :data="responsiveImage"
+        />
       </div>
 
       <div class="w-full ml-0 md:w-auto md:ml-8">

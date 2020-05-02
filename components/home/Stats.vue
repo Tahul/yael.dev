@@ -38,13 +38,13 @@ export default {
     locale() {
       if (this.$i18n.locale === 'fr') {
         return {
-          timeSpent: 'passées à coder',
-          commits: 'commits envoyés',
+          timeSpent: 'passée(s) à coder',
+          commits: 'commit(s) envoyés',
         }
       } else {
         return {
           timeSpent: 'spent coding',
-          commits: 'commits pushed',
+          commits: 'commit(s) pushed',
         }
       }
     },

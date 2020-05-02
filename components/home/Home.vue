@@ -6,7 +6,7 @@
       </span>
     </template>
 
-    <div v-html="marked(home.welcome)" />
+    <div class="content" v-html="marked(home.welcome)" />
 
     <client-only>
       <stats class="mt-4" />
