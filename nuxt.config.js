@@ -111,6 +111,13 @@ export default {
         position: 'bottomRight',
       },
     ],
+    // Doc: https://github.com/nuxt-community/analytics-module
+    [
+      ('@nuxtjs/google-analytics',
+      {
+        id: process.env.NUXT_ENV_GA_ID,
+      }),
+    ],
   ],
   /*
    ** Nuxt.js modules
