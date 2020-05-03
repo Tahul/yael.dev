@@ -1,16 +1,23 @@
 <template>
-  <div v-if="!failed" class="flex flex-wrap stats">
-    <div class="flex items-center w-auto mb-2 md:mb-0">
-      <though class="inline-block w-8 h-8 mr-2" />
+  <div
+    class="w-full p-2 border-4 border-indigo-400 rounded-lg bg-gray"
+    v-if="!failed"
+  >
+    <h4 class="text-indigo-400">{{ locale.title }}</h4>
 
-      <p class="inline-block">{{ timeSpent }} {{ locale.timeSpent }}</p>
+    <div class="flex flex-wrap stats">
+      <div class="flex items-center w-auto mb-2 md:mb-0">
+        <though class="inline-block w-8 h-8 mr-2" />
 
-      &nbsp;&nbsp;
-    </div>
-    <div class="flex items-center w-auto mb-2 md:mb-0">
-      <commit class="inline-block w-8 h-8 mr-2" />
+        <p class="inline-block">{{ timeSpent }} {{ locale.timeSpent }}</p>
 
-      <p class="inline-block">{{ commits }} {{ locale.commits }}</p>
+        &nbsp;&nbsp;
+      </div>
+      <div class="flex items-center w-auto mb-2 md:mb-0">
+        <commit class="inline-block w-8 h-8 mr-2" />
+
+        <p class="inline-block">{{ commits }} {{ locale.commits }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -38,11 +45,13 @@ export default {
     locale() {
       if (this.$i18n.locale === 'fr') {
         return {
+          title: 'Statistiques quotidiennes',
           timeSpent: 'passée(s) à coder',
           commits: 'commit(s) envoyés',
         }
       } else {
         return {
+          title: 'Daily metrics',
           timeSpent: 'spent coding',
           commits: 'commit(s) pushed',
         }
@@ -68,7 +77,6 @@ export default {
   & svg {
     @apply relative;
     fill: #7f9cf5;
-    bottom: -0.33rem;
   }
 }
 </style>

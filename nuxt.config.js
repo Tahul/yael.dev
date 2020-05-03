@@ -113,10 +113,10 @@ export default {
     ],
     // Doc: https://github.com/nuxt-community/analytics-module
     [
-      ('@nuxtjs/google-analytics',
+      '@nuxtjs/google-analytics',
       {
         id: process.env.NUXT_ENV_GA_ID,
-      }),
+      },
     ],
   ],
   /*
