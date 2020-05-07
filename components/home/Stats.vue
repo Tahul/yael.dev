@@ -3,7 +3,7 @@
     class="w-full p-2 border-4 border-indigo-400 rounded-lg bg-gray"
     v-if="!failed"
   >
-    <h4 class="text-indigo-400">{{ locale.title }}</h4>
+    <h4 class="mb-2 text-indigo-400">{{ locale.title }}</h4>
 
     <div class="flex flex-wrap stats">
       <div class="flex items-center w-auto mb-2 md:mb-0">

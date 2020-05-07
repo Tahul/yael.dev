@@ -6,13 +6,13 @@
       </span>
     </template>
 
-    <div class="content" v-html="marked(home.welcome)" />
+    <div class="home-content" v-html="marked(home.welcome)" />
 
     <client-only>
-      <stats class="mt-4" />
+      <stats />
 
       <template v-slot:placeholder>
-        <p class="mt-4">Loading...</p>
+        <p>Loading...</p>
       </template>
     </client-only>
   </home-section>
@@ -83,6 +83,17 @@ export default {
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+</style>
+
+<style>
+.home-content {
+  & h1 {
+    @apply mb-2;
+  }
+  & p {
+    @apply mb-2;
   }
 }
 </style>

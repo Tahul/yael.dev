@@ -32,12 +32,6 @@
     <slide-in :delay="500">
       <div class="content" v-html="post.content" />
     </slide-in>
-
-    <client-only>
-      <slide-in :delay="600">
-        <comments />
-      </slide-in>
-    </client-only>
   </section>
 </template>
 
