@@ -17,5 +17,14 @@
 }
 
 html {
-  @apply bg-gray-900;
+  @apply bg-gray-900 h-full w-full;
+}
+
+body {
+  @apply h-screen w-full;
+}
+
+#__nuxt,
+#__layout {
+  @apply h-full;
 }

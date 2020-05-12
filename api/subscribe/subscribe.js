@@ -1,7 +1,7 @@
 // Subscribe to MailChimp Netlify function
 // Source: https://dev.to/skatkov/jamstack-progressive-mailchimp-sign-up-form-with-netlify-13m3
 // --------------------------------------------------------------------------------------------
-import { parse } from 'querystring'
+const { parse } = require('querystring')
 const axios = require('axios');
 const mailChimpAPI = process.env.MAILCHIMP_API_KEY;
 const mailChimpListID = process.env.MAILCHIMP_LIST_ID;
