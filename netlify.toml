@@ -1,0 +1,5 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
+[build]
+  # Directory with the serverless Lambda functions to deploy to AWS.
+  functions = "/api/"
