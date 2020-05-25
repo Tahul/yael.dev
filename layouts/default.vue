@@ -6,7 +6,7 @@
 
     <nuxt />
 
-    <subscribe />
+    <subscribe v-if="false" />
   </div>
 </template>
 

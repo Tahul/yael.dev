@@ -104,5 +104,13 @@ a {
       line-height: 2rem;
     }
   }
+
+  & ul {
+    @apply list-disc list-inside;
+
+    & li {
+      @apply mb-4;
+    }
+  }
 }
 /* purgecss end ignore */

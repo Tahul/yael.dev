@@ -7,22 +7,22 @@
       />
     </slide-in>
 
-    <slide-in :delay="100">
+    <slide-in  class="mb-4" :delay="100">
       <h1>
         {{ post.title }}
       </h1>
     </slide-in>
 
-    <slide-in :delay="200">
-      <span class="text-sm italic text-gray-400 md:text-base">
+    <slide-in class="mb-4" :delay="200">
+      <span class="italic text-gray-400">
         {{ post.excerpt }}
       </span>
     </slide-in>
 
     <slide-in :delay="300">
-      <p class="mt-0 text-lg italic text-gray-600">
+      <span class="italic text-gray-600">
         {{ $helpers.formatDate($i18n.locale, post.publicationDate) }}
-      </p>
+      </span>
     </slide-in>
 
     <slide-in :delay="400">
