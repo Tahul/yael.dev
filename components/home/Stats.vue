@@ -1,17 +1,15 @@
 <template>
   <div
-    class="w-full p-2 border-4 border-indigo-400 rounded-lg bg-gray"
+    class="w-full rounded-lg bg-gray"
     v-if="!failed"
   >
-    <h4 class="mb-2 text-indigo-400">{{ locale.title }}</h4>
+    <h3 class="mb-2 text-indigo-400">{{ locale.title }}</h3>
 
     <div class="flex flex-wrap stats">
-      <div class="flex items-center w-auto mb-2 md:mb-0">
+      <div class="flex items-center w-auto mb-2 md:mb-0 mr-2">
         <though class="inline-block w-8 h-8 mr-2" />
 
         <p class="inline-block">{{ timeSpent }} {{ locale.timeSpent }}</p>
-
-        &nbsp;&nbsp;
       </div>
       <div class="flex items-center w-auto mb-2 md:mb-0">
         <commit class="inline-block w-8 h-8 mr-2" />
@@ -45,15 +43,15 @@ export default {
     locale() {
       if (this.$i18n.locale === 'fr') {
         return {
-          title: 'Statistiques quotidiennes',
-          timeSpent: 'passée(s) à coder',
-          commits: 'commit(s) envoyés',
+          title: 'Mes statistiques quotidiennes',
+          timeSpent: 'passées à coder',
+          commits: 'commits',
         }
       } else {
         return {
-          title: 'Daily metrics',
+          title: 'My daily metrics',
           timeSpent: 'spent coding',
-          commits: 'commit(s) pushed',
+          commits: 'commits',
         }
       }
     },

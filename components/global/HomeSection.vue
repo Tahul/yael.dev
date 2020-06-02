@@ -1,10 +1,13 @@
 <template>
   <Motion tag="div" spring="noWobble" :values="values">
     <div
-      class="relative flex flex-wrap items-center w-full mb-8 cursor-pointer md:mb-16 md:flex-no-wrap"
+      class="relative flex flex-wrap items-center w-full mb-8 md:mb-16 md:flex-no-wrap"
       @mouseover="handleMouseOver"
       @mouseout="handleMouseOut"
       slot-scope="_props"
+      :class="{
+        'cursor-pointer': to
+      }"
       :style="{
         transform: `translateY(${_props.offset}px)`,
         opacity: `${_props.opacity}`,
