@@ -2,13 +2,22 @@
 // Source: https://dev.to/skatkov/jamstack-progressive-mailchimp-sign-up-form-with-netlify-13m3
 // --------------------------------------------------------------------------------------------
 const { parse } = require('querystring')
-const axios = require('axios');
-const mailChimpAPI = process.env.MAILCHIMP_API_KEY;
-const mailChimpListID = process.env.MAILCHIMP_LIST_ID;
+const axios = require('axios')
+const mailChimpAPI = process.env.MAILCHIMP_API_KEY
+const mailChimpListID = process.env.MAILCHIMP_LIST_ID
 
-exports.handler = (event, context, callback) => {
+exports.handler = async (event, context, callback) => {
+  const headers = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers':
+      'Origin, X-Requested-With, Content-Type, Accept',
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Methods': '*',
+    'Access-Control-Max-Age': '2592000',
+    'Access-Control-Allow-Credentials': 'true',
+  }
   let body = {}
-  console.log(event)
+
   try {
     body = JSON.parse(event.body)
   } catch (e) {
@@ -20,8 +29,8 @@ exports.handler = (event, context, callback) => {
     return callback(null, {
       statusCode: 400,
       body: JSON.stringify({
-        error: 'missing email'
-      })
+        error: 'missing email',
+      }),
     })
   }
 
@@ -30,8 +39,8 @@ exports.handler = (event, context, callback) => {
     return callback(null, {
       statusCode: 400,
       body: JSON.stringify({
-        error: 'missing mailChimpAPI key'
-      })
+        error: 'missing mailChimpAPI key',
+      }),
     })
   }
 
@@ -40,68 +49,69 @@ exports.handler = (event, context, callback) => {
     return callback(null, {
       statusCode: 400,
       body: JSON.stringify({
-        error: 'missing mailChimpListID key'
-      })
+        error: 'missing mailChimpListID key',
+      }),
     })
   }
 
   const data = {
     email_address: body.email,
-    status: "pending",
-    merge_fields: {}
-  };
+    status: 'pending',
+    merge_fields: {},
+  }
 
-  const subscriber = JSON.stringify(data);
-  console.log("Sending data to mailchimp", subscriber);
+  const subscriber = JSON.stringify(data)
+  console.log('Sending data to mailchimp', subscriber)
 
   // Subscribe an email
-
-  axios(
-    {
+  try {
+    const response = await axios({
       method: 'post',
-      url: `https://us19.api.mailchimp.com/3.0/lists/${mailChimpListID}/members/`, //change region (us19) based on last values of ListId.
+      url: `https://us16.api.mailchimp.com/3.0/lists/${mailChimpListID}/members/`, //change region (us19) based on last values of ListId.
       data: subscriber,
       auth: {
         username: 'apikey', // any value will work
-        password: mailChimpAPI
-      }
-    }
-  ).then(function(response){
-    console.log(`status:${response.status}` )
-    console.log(`data:${response.data}` )
-    console.log(`headers:${response.headers}` )
+        password: mailChimpAPI,
+      },
+    })
 
-    if (response.headers['content-type'] === 'application/x-www-form-urlencoded') {
+    if (
+      response.headers['content-type'] === 'application/x-www-form-urlencoded'
+    ) {
       // Do redirect for non JS enabled browsers
       return callback(null, {
         statusCode: 302,
         headers: {
-          Location: '/thanks.html',
+          Location: '/',
           'Cache-Control': 'no-cache',
         },
-        body: JSON.stringify({})
-      });
+        body: JSON.stringify({}),
+      })
     }
 
     // Return data to AJAX request
     return callback(null, {
       statusCode: 200,
-      body: JSON.stringify({ emailAdded: true })
+      headers,
+      body: JSON.stringify({ subscribed: body.email }),
     })
-  }).catch(function(error) {
-    if (error.response) {
-      // The request was made and the server responded with a status code
-      // that falls out of the range of 2xx
-      console.log(error.response.data);
-      console.log(error.response.status);
-      console.log(error.response.headers);
-    } else if (error.request) {
-      // The request was made but no response was received
-      console.log(error.request);
-    } else {
-      // Something happened in setting up the request that triggered an Error
-      console.log('Error', error.message);
+  } catch (e) {
+    // Error w/ response
+    if (e.response) {
+      if (e.response.data.title === 'Member Exists') {
+        return callback(null, {
+          statusCode: 200,
+          headers,
+          body: JSON.stringify({ subscribed: body.email, already: true }),
+        })
+      }
     }
-    console.log(error.config);
-  });
-};
+
+    // Error w/o response
+    return callback(null, {
+      statusCode: 500,
+      headers,
+      body: JSON.stringify({ subscribed: false }),
+    })
+  }
+}

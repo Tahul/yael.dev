@@ -6,20 +6,28 @@
 
     <nuxt />
 
-    <subscribe v-if="false" />
+    <client-only>
+      <leave-modal v-show="out" v-model="out" />
+    </client-only>
   </div>
 </template>
 
 <script>
 import Topbar from '../components/layout/Topbar'
 import Subscribe from '../components/global/Subscribe'
+import LeaveModal from '../components/layout/LeaveModal'
 
 export default {
   name: 'DefaultLayout',
 
   components: {
+    LeaveModal,
     Topbar,
     Subscribe
   },
+
+  data: () => ({
+    out: false
+  })
 }
 </script>

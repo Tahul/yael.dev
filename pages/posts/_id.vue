@@ -32,16 +32,24 @@
     <slide-in :delay="500">
       <div class="content" v-html="post.content" />
     </slide-in>
+
+    <slide-in :delay="600">
+      <subscribe-box :closeable="false" class="my-8" />
+    </slide-in>
   </section>
 </template>
 
 <script>
+
 import { request, gql, imageFields, seoMetaTagsFields } from '~/lib/datocms'
 import { toHead } from 'vue-datocms'
-import format from 'date-fns/format'
-import parseISO from 'date-fns/parseISO'
+import SubscribeBox from '../../components/global/SubscribeBox'
 
 export default {
+  name: "Post",
+
+  components: { SubscribeBox },
+
   async asyncData({ app, params, store }) {
     const locale = app.i18n.locale
 
