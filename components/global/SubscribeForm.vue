@@ -91,7 +91,7 @@
         if (this.validateEmail(email)) {
           try {
             const response = await axios.post(
-              process.env.NODE_ENV === 'production' ? '/.netlify/functions/subscribe' : 'http://localhost:8888/.netlify/functions/subscribe',
+              process.env.NODE_ENV === "development" ? 'http://localhost:8888/.netlify/functions/subscribe' : '/.netlify/functions/subscribe',
               JSON.stringify({
                 email
               })
