@@ -13,7 +13,7 @@ const helpers = {
       .toLocaleLowerCase()
   },
   getPostUrl(locale, post) {
-    return `${locale === 'fr' ? 'fr' : ''}/posts/${post.slug}`
+    return `${locale === 'fr' ? '/fr' : ''}/posts/${post.slug}`
   },
 }
 
