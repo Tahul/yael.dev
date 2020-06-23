@@ -10,6 +10,7 @@
         :responsive-image="post.coverImage.responsiveImage"
       >
         <template v-slot:hoverContent>
+          <lottie path="./animations/book.json" />
         </template>
 
         <h2 :title="post.title" class="truncate">{{ post.title }}</h2>
