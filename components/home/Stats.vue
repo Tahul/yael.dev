@@ -3,19 +3,23 @@
     class="w-full rounded-lg bg-gray"
     v-if="!failed"
   >
-    <h3 class="mb-2 text-indigo-400">{{ locale.title }}</h3>
-
-    <div class="flex flex-wrap stats">
+    <div class="flex mb-0 md:mb-2 flex-wrap stats">
       <div class="flex items-center w-auto mb-2 md:mb-0 mr-2">
-        <though class="inline-block w-8 h-8 mr-2" />
+        <though class="inline-block w-6 h-6 md:w-8 md:h-8 mr-2" />
 
         <p class="inline-block">{{ timeSpent }} {{ locale.timeSpent }}</p>
       </div>
       <div class="flex items-center w-auto mb-2 md:mb-0">
-        <commit class="inline-block w-8 h-8 mr-2" />
+        <commit class="inline-block w-6 h-6 md:w-8 md:h-8 mr-2" />
 
         <p class="inline-block">{{ commits }} {{ locale.commits }}</p>
       </div>
+    </div>
+
+    <div class="flex items-center w-auto mb-0 md:mb-2 stats" :title="locale.latestStar" :alt="locale.latestStar">
+      <star class="inline-block w-6 h-6 md:w-8 md:h-8 mr-2" />
+
+      <a :href="latestStar.url" target="_blank" class="inline-block">{{ latestStar.full_name }}</a>
     </div>
   </div>
 </template>
@@ -24,6 +28,7 @@
 import axios from 'axios'
 import Commit from '../../assets/img/commit.svg?inline'
 import Though from '../../assets/img/though.svg?inline'
+import Star from '../../assets/img/star.svg?inline'
 
 export default {
   name: 'Stats',
@@ -31,12 +36,14 @@ export default {
   components: {
     Commit,
     Though,
+    Star
   },
 
   data: () => ({
     failed: false,
     timeSpent: '...',
     commits: '...',
+    latestStar: '...'
   }),
 
   computed: {
@@ -46,12 +53,14 @@ export default {
           title: 'Mes statistiques quotidiennes',
           timeSpent: 'passées à coder',
           commits: 'commits',
+          latestStar: 'Ma dernière étoile GitHub'
         }
       } else {
         return {
           title: 'My daily metrics',
           timeSpent: 'spent coding',
           commits: 'commits',
+          latestStar: 'My GitHub latest star'
         }
       }
     },
@@ -62,6 +71,7 @@ export default {
       const response = axios.get(process.env.NUXT_ENV_METRICS_URL).then((r) => {
         this.timeSpent = r.data.wakaTime.text
         this.commits = r.data.globalCommits
+        this.latestStar = r.data.githubStars[0]
       })
     } catch (e) {
       this.failed = true
