@@ -21,10 +21,18 @@ html {
 }
 
 body {
-  @apply h-screen w-full;
+  @apply h-screen w-full flex justify-center;
 }
 
 #__nuxt,
 #__layout {
   @apply h-full;
+}
+
+#main {
+  max-width: 100%;
+
+  @screen md {
+    max-width: 800px;
+  }
 }
