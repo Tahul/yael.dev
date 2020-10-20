@@ -1,6 +1,7 @@
 <template>
   <div
-    class="relative w-full h-full px-4 text-white transition-all duration-100 main linear md:px-16 lg:px-32 xl:px-64"
+    id="main"
+    class="relative w-full h-full px-4 text-white transition-all duration-100 main linear"
   >
     <topbar />
 
@@ -23,11 +24,11 @@ export default {
   components: {
     LeaveModal,
     Topbar,
-    Subscribe
+    Subscribe,
   },
 
   data: () => ({
-    out: false
-  })
+    out: false,
+  }),
 }
 </script>

@@ -1,25 +1,30 @@
 <template>
-  <div
-    class="w-full rounded-lg bg-gray"
-    v-if="!failed"
-  >
-    <div class="flex mb-0 md:mb-2 flex-wrap stats">
-      <div class="flex items-center w-auto mb-2 md:mb-0 mr-2">
-        <though class="inline-block w-6 h-6 md:w-8 md:h-8 mr-2" />
+  <div class="w-full rounded-lg bg-gray" v-if="!failed">
+    <div class="flex flex-wrap mb-0 md:mb-2 stats">
+      <div class="flex items-center w-auto mb-2 mr-2 md:mb-0">
+        <though class="inline-block w-6 h-6 mr-2 md:w-8 md:h-8" />
 
-        <p class="inline-block">{{ timeSpent }} {{ locale.timeSpent }}</p>
+        <p class="inline-block truncate">
+          {{ timeSpent }} {{ locale.timeSpent }}
+        </p>
       </div>
       <div class="flex items-center w-auto mb-2 md:mb-0">
-        <commit class="inline-block w-6 h-6 md:w-8 md:h-8 mr-2" />
+        <commit class="inline-block w-6 h-6 mr-2 md:w-8 md:h-8" />
 
-        <p class="inline-block">{{ commits }} {{ locale.commits }}</p>
+        <p class="inline-block truncate">{{ commits }} {{ locale.commits }}</p>
       </div>
     </div>
 
-    <div class="flex items-center w-auto mb-0 md:mb-2 stats" :title="locale.latestStar" :alt="locale.latestStar">
-      <star class="inline-block w-6 h-6 md:w-8 md:h-8 mr-2" />
+    <div
+      class="flex items-center w-auto mb-0 md:mb-2 stats"
+      :title="locale.latestStar"
+      :alt="locale.latestStar"
+    >
+      <star class="inline-block w-6 h-6 mr-2 md:w-8 md:h-8" />
 
-      <a :href="latestStar.url" target="_blank" class="inline-block">{{ latestStar.full_name }}</a>
+      <a :href="latestStar.url" target="_blank" class="inline-block truncate">{{
+        latestStar.full_name
+      }}</a>
     </div>
   </div>
 </template>
@@ -36,14 +41,14 @@ export default {
   components: {
     Commit,
     Though,
-    Star
+    Star,
   },
 
   data: () => ({
     failed: false,
     timeSpent: '...',
     commits: '...',
-    latestStar: '...'
+    latestStar: '...',
   }),
 
   computed: {
@@ -51,16 +56,16 @@ export default {
       if (this.$i18n.locale === 'fr') {
         return {
           title: 'Mes statistiques quotidiennes',
-          timeSpent: 'passées à coder',
+          timeSpent: "passées à coder aujourd'hui",
           commits: 'commits',
-          latestStar: 'Ma dernière étoile GitHub'
+          latestStar: 'Ma dernière étoile GitHub',
         }
       } else {
         return {
           title: 'My daily metrics',
-          timeSpent: 'spent coding',
+          timeSpent: 'spent coding today',
           commits: 'commits',
-          latestStar: 'My GitHub latest star'
+          latestStar: 'My GitHub latest star',
         }
       }
     },

@@ -39,7 +39,7 @@ export default {
   computed: {
     marked() {
       return marked
-    }
+    },
   },
 
   methods: {
