@@ -47,7 +47,11 @@ p {
 }
 
 a {
-  @apply relative font-bold text-indigo-400;
+  @apply relative font-bold text-indigo-400 text-sm;
+
+  @screen md {
+    @apply text-base;
+  }
 
   &::after {
     @apply rounded-full transition-all duration-100 ease-in-out block left-0 absolute w-full bg-indigo-400 opacity-0;
