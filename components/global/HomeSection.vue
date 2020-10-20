@@ -6,14 +6,16 @@
       @mouseout="handleMouseOut"
       slot-scope="_props"
       :class="{
-        'cursor-pointer': to
+        'cursor-pointer': to,
       }"
       :style="{
         transform: `translateY(${_props.offset}px)`,
         opacity: `${_props.opacity}`,
       }"
     >
-      <div class="relative flex items-center justify-center w-full md:w-auto">
+      <div
+        class="relative flex flex-col items-center justify-center w-full md:w-auto"
+      >
         <Motion
           v-if="$slots.hoverContent"
           tag="div"
