@@ -25,6 +25,7 @@
         >
           <span
             slot-scope="_props"
+            class="select-none"
             :style="{
               transform: `translateY(${_props.offset}px)`,
               opacity: `${_props.opacity}`,
