@@ -78,7 +78,7 @@ a {
  */
 
 .image {
-  @apply relative overflow-hidden w-full mb-4 select-none flex-shrink-0 w-32 h-32 min-w-0 min-h-0 rounded-full border-4 border-indigo-400 rounded-full shadow-md;
+  @apply relative overflow-hidden mb-4 select-none flex-shrink-0 w-32 h-32 min-w-0 min-h-0 rounded-full border-4 border-indigo-400 shadow-md;
 
   @screen md {
     @apply mb-0;
