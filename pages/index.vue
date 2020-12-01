@@ -38,7 +38,14 @@ export default {
                 ...imageFields
               }
             }
+
             welcome(locale: ${locale})
+
+            seo: _seoMetaTags {
+              attributes
+              content
+              tag
+            }
           }
 
           posts: allPosts(first: 10, orderBy: _firstPublishedAt_DESC, locale: ${locale}) {
@@ -64,9 +71,12 @@ export default {
         }
 
         ${imageFields}
+
         ${seoMetaTagsFields}
       `,
     })
+
+    console.log(data)
 
     return { ready: !!data, ...data }
   },
@@ -76,7 +86,7 @@ export default {
       return
     }
 
-    return toHead(this.site.favicon)
+    return toHead(this.site.favicon, this.home.seo)
   },
 }
 </script>

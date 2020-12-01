@@ -7,7 +7,7 @@
       />
     </slide-in>
 
-    <slide-in  class="mb-4" :delay="100">
+    <slide-in class="mb-4" :delay="100">
       <h1>
         {{ post.title }}
       </h1>
@@ -40,13 +40,12 @@
 </template>
 
 <script>
-
 import { request, gql, imageFields, seoMetaTagsFields } from '~/lib/datocms'
 import { toHead } from 'vue-datocms'
 import SubscribeBox from '../../components/global/SubscribeBox'
 
 export default {
-  name: "Post",
+  name: 'Post',
 
   components: { SubscribeBox },
 
@@ -114,7 +113,7 @@ export default {
       return
     }
 
-    return toHead(this.post.seo, this.site.favicon)
+    return toHead(this.site.favicon, this.post.seo)
   },
 
   data: () => ({
