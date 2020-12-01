@@ -18,8 +18,6 @@ const locales = [
 
 // Config
 export default {
-  mode: 'universal',
-
   /**
    * Generate routes at build time
    */
@@ -112,12 +110,7 @@ export default {
       },
     ],
     // Doc: https://github.com/nuxt-community/analytics-module
-    [
-      '@nuxtjs/google-analytics',
-      {
-        id: process.env.NUXT_ENV_GA_ID,
-      },
-    ],
+    '@nuxtjs/google-analytics',
   ],
   /*
    ** Nuxt.js modules
@@ -163,10 +156,9 @@ export default {
           customProperties: false,
         },
       },
-    },
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {},
+    }
   },
+  googleAnalytics: {
+    id: process.env.NUXT_ENV_GA_ID
+  }
 }
