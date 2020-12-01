@@ -4,14 +4,12 @@
       <div class="flex items-center w-auto mb-2 mr-2 md:mb-0">
         <though class="inline-block w-6 h-6 mr-2 md:w-8 md:h-8" />
 
-        <p class="inline-block truncate">
-          {{ timeSpent }} {{ locale.timeSpent }}
-        </p>
+        <p class="inline-block">{{ timeSpent }} {{ locale.timeSpent }}</p>
       </div>
       <div class="flex items-center w-auto mb-2 md:mb-0">
         <commit class="inline-block w-6 h-6 mr-2 md:w-8 md:h-8" />
 
-        <p class="inline-block truncate">{{ commits }} {{ locale.commits }}</p>
+        <p class="inline-block">{{ commits }} {{ locale.commits }}</p>
       </div>
     </div>
 
@@ -22,7 +20,7 @@
     >
       <star class="inline-block w-6 h-6 mr-2 md:w-8 md:h-8" />
 
-      <a :href="latestStar.url" target="_blank" class="inline-block truncate">{{
+      <a :href="latestStar.url" target="_blank" class="inline-block">{{
         latestStar.full_name
       }}</a>
     </div>
