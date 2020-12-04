@@ -5,14 +5,14 @@
       :style="{
         opacity: `${_props.opacity}`,
       }"
-      class="flex items-center justify-center fixed left-0 top-0 w-full h-full z-50 overflow-hidden"
+      class="fixed top-0 left-0 z-50 flex items-center justify-center w-full h-full overflow-hidden"
     >
       <div
-        class="absolute left-0 top-0 w-full h-full z-10 bg-indigo-600 opacity-50"
+        class="absolute top-0 left-0 z-10 w-full h-full bg-indigo-600 opacity-50"
       />
 
       <subscribe-box
-        class="md:w-3/4 lg:w-2/3 xl:w-3/5 mx-6 md:mx-0 z-20"
+        class="z-20 mx-6 md:w-3/4 lg:w-2/3 xl:w-3/5 md:mx-0"
         :style="{ transform: `translateY(${_props.offset}px)` }"
         @close="close"
         v-model="subscribed"
@@ -33,13 +33,13 @@ export default {
     closedKey: 'yael_dev_popup_closed',
     subscribed: false,
     out: false,
-    closedAt: null
+    closedAt: null,
   }),
 
   watch: {
     out(newVal) {
       this.$emit('input', newVal)
-    }
+    },
   },
 
   computed: {
@@ -58,10 +58,10 @@ export default {
     },
 
     closedRecently() {
-      if (this.closedAt && this.closedAt > (Date.now() - 1000 * 60 * 1440)) {
+      if (this.closedAt && this.closedAt > Date.now() - 1000 * 60 * 1440) {
         return true
       }
-    }
+    },
   },
 
   mounted() {
@@ -102,7 +102,7 @@ export default {
       this.closedAt = closedDate
 
       localStorage.setItem(this.closedKey, closedDate)
-    }
+    },
   },
 }
 </script>

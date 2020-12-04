@@ -1,9 +1,7 @@
 <template>
   <home-section :responsive-image="home.profilePicture.responsiveImage">
     <template v-slot:hoverContent>
-      <span class="text-2xl md:text-4xl wave">
-        👋
-      </span>
+      <span class="text-2xl md:text-4xl wave"> 👋 </span>
     </template>
 
     <div class="home-content" v-html="marked(home.welcome)" />

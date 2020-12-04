@@ -4,9 +4,7 @@
     :to="$i18n.locale === 'fr' ? '/fr' : '/'"
     v-if="!isHome"
   >
-    <span class="w-6 text-xl">
-      🏡
-    </span>
+    <span class="w-6 text-xl"> 🏡 </span>
     <span class="w-auto">
       {{ locale }}
     </span>
