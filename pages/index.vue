@@ -76,8 +76,6 @@ export default {
       `,
     })
 
-    console.log(data)
-
     return { ready: !!data, ...data }
   },
 

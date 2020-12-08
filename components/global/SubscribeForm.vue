@@ -138,7 +138,6 @@ export default {
 
           this.subscribed = true
         } catch (e) {
-          console.log(e)
           this.setError(this.locale.networkError)
         }
       } else {

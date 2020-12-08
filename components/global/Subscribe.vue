@@ -69,8 +69,6 @@ export default {
           email: email,
         }),
       })
-
-      console.log(response.data)
     },
   },
 }
