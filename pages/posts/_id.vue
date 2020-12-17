@@ -41,7 +41,7 @@
 
 <script>
 import { request, gql, imageFields, seoMetaTagsFields } from '~/lib/datocms'
-import { toHead } from 'vue-datocms'
+import { toHead } from 'vue-datocms/dist/vue-datocms.esm'
 import SubscribeBox from '../../components/global/SubscribeBox'
 
 export default {

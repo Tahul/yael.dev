@@ -9,7 +9,7 @@
 <script>
 // Packages
 import { request, gql, imageFields, seoMetaTagsFields } from '~/lib/datocms'
-import { toHead } from 'vue-datocms'
+import { toHead } from 'vue-datocms/dist/vue-datocms.esm'
 // Components
 import Home from '../components/home/Home'
 import Posts from '../components/home/Posts'
