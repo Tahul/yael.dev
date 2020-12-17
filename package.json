@@ -12,25 +12,25 @@
   },
   "dependencies": {
     "@aceforth/nuxt-netlify": "^1.1.0",
-    "@nuxtjs/axios": "^5.12.3",
+    "@nuxtjs/axios": "^5.12.4",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/svg": "^0.1.12",
-    "@nuxtjs/tailwindcss": "^3.3.2",
+    "@nuxtjs/tailwindcss": "^3.3.4",
     "date-fns": "^2.16.1",
     "graphql": "^15.4.0",
     "graphql-tag": "^2.11.0",
     "lottie-vuejs": "^0.4.0",
-    "marked": "^1.2.5",
-    "nuxt": "^2.14.9",
-    "nuxt-i18n": "^6.15.4",
-    "vue-datocms": "0.0.8",
+    "marked": "^1.2.7",
+    "nuxt": "^2.14.12",
+    "nuxt-i18n": "^6.16.0",
+    "vue-datocms": "^0.1.0",
     "vue-motion": "^0.2.3"
   },
   "devDependencies": {
     "@nuxtjs/google-analytics": "^2.4.0",
     "@teamnovu/nuxt-breaky": "^1.2.2",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-prettier": "^3.2.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-prettier": "^3.3.0",
     "prettier": "^2.2.1"
   }
 }
