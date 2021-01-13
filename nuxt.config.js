@@ -1,6 +1,6 @@
 // Imports
 require('dotenv').config()
-import { request, gql } from './lib/datocms'
+import { gql, request } from './lib/datocms'
 
 // Variables
 const locales = [
@@ -111,6 +111,7 @@ export default {
     ],
     // Doc: https://github.com/nuxt-community/analytics-module
     '@nuxtjs/google-analytics',
+    '@nuxtjs/composition-api'
   ],
   /*
    ** Nuxt.js modules
@@ -150,15 +151,24 @@ export default {
    ** Build configuration
    */
   build: {
+    extend(config, ctx) {
+      config.module.rules.push({
+        test: /\.(ogg|mp3|wav|mpe?g)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]',
+        },
+      })
+    },
     postcss: {
       preset: {
         features: {
           customProperties: false,
         },
       },
-    }
+    },
   },
   googleAnalytics: {
-    id: process.env.NUXT_ENV_GA_ID
-  }
+    id: process.env.NUXT_ENV_GA_ID,
+  },
 }
