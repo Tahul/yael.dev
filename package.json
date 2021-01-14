@@ -30,6 +30,8 @@
     "vue-use-sound": "^1.1.1"
   },
   "devDependencies": {
+    "@nuxt/types": "^2.14.12",
+    "@nuxt/typescript-build": "^2.0.3",
     "@nuxtjs/google-analytics": "^2.4.0",
     "@teamnovu/nuxt-breaky": "^1.2.2",
     "eslint-config-prettier": "^7.1.0",
