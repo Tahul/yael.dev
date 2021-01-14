@@ -137,6 +137,8 @@ export default {
         defaultLocale: 'en',
       },
     ],
+    // Doc: https://content.nuxtjs.org
+    '@nuxt/content'
   ],
   /**
    * Tailwind
