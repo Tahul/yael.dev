@@ -141,6 +141,12 @@ export default {
     '@nuxt/content'
   ],
   /**
+   * Content
+   */
+  content: {
+
+  },
+  /**
    * Tailwind
    */
   tailwindcss: {
