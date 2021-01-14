@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@aceforth/nuxt-netlify": "^1.1.0",
+    "@nuxt/content": "^1.11.1",
     "@nuxtjs/axios": "^5.12.5",
     "@nuxtjs/composition-api": "^0.18.0",
     "@nuxtjs/dotenv": "^1.4.1",
