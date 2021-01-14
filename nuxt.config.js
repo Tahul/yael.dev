@@ -111,7 +111,9 @@ export default {
     ],
     // Doc: https://github.com/nuxt-community/analytics-module
     '@nuxtjs/google-analytics',
+    // Doc: https://composition-api.nuxtjs.org/
     '@nuxtjs/composition-api',
+    // Doc: https://typescript.nuxtjs.org/
     '@nuxt/typescript-build'
   ],
   /*
