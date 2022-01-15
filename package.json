@@ -24,7 +24,7 @@
     "graphql": "^15.4.0",
     "graphql-tag": "^2.11.0",
     "lottie-vuejs": "^0.4.0",
-    "marked": "^2.0.0",
+    "marked": "^4.0.10",
     "nuxt": "^2.14.12",
     "nuxt-i18n": "^6.18.0",
     "vue-datocms": "^0.1.3",
